@@ -17,7 +17,8 @@ classDiagram
     }
 
   class List {
-    +Array bookmarks
-    <!-- display method, maybe needed, maybe sits in different class -->
+    +Array bookmarks   <!-- display method, maybe needed, maybe sits in different class-->
+
+    +all()
   }
 ```
