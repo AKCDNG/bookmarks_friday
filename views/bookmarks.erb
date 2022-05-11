@@ -1,1 +1,8 @@
 <%= @bookmark %>
+
+<form action="/add" method="POST">
+  <label for="add_bookmark">Add Bookmark:
+    <input name="add_bookmark" type="text" placeholder="url" required>
+  </label>
+  <input type="submit" value="Submit">
+</form>
