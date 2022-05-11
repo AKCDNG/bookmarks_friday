@@ -1,3 +1,12 @@
+## Database Setup
+### CREATE database
+CREATE DATABASE bookmarks
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60) NOT NULL)
+
+### Create test database
+CREATE DATABASE bookmarks_test
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60) NOT NULL)
+
 ## Requirement:
 Show a list of bookmarks
 

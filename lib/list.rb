@@ -1,13 +1,26 @@
+require 'pg'
 class List
-  attr_reader :bookmarks
 
-  def initialize
-    @bookmarks = ['bookmark1', 'bookmark2']
-  end
+  def self.all 
+    if ENV['DB_ENV'] == 'test'
+      con = PG.connect :dbname => 'bookmark_manager_test'
+    else
+      con = PG.connect :dbname => 'bookmark_manager'
+    end
+      
+      rs = con.exec "SELECT url FROM bookmarks;"
+  
+      rs.map do |row|
+        row['url']
+      end
 
-  def all 
-    @bookmarks
+      
+
   end
 
   
 end
+
+
+
+
