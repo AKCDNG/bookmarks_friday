@@ -16,9 +16,8 @@ describe List do
     before(:example) { List.add('http://testurl3.org','Testurl3') }
     
     it 'should return new added bookmark' do
-      p List.all
       expect(List.all[2]).to be_instance_of(Bookmark).and have_attributes(:title => 'Testurl3')
     end
-    
+
   end
 end
