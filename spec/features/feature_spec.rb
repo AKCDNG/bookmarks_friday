@@ -13,6 +13,12 @@ feature 'bookmarks' do
     visit '/bookmarks'
     expect(page).to have_content "testurl1"
     expect(page).to have_content "testurl2"
+  end
 
+  scenario 'add a bookmark' do
+    visit '/bookmarks'
+    fill_in "add_bookmark", with: "testurl3"
+    click_button 'Submit'
+    expect(page).to have_content "testurl3"
   end
 end
