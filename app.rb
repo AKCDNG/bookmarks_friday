@@ -8,6 +8,8 @@ class BookmarkManager < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :method_override
+
   get '/' do
     'Hello World'
   end
@@ -19,6 +21,11 @@ class BookmarkManager < Sinatra::Base
 
   post '/add' do
     List.add(params[:add_url], params[:add_title])
+    redirect '/bookmarks'
+  end
+
+  delete '/bookmarks/:id' do
+    List.delete(params[:id])
     redirect '/bookmarks'
   end
 

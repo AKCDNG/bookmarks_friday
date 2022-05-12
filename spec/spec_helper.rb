@@ -20,7 +20,7 @@ end
 
 def insert_2_url
     con = PG.connect :dbname => 'bookmark_manager_test'
-    con.exec "INSERT INTO bookmarks(url, title) VALUES ('http://testurl1.pl', 'Testurl1'), ('http://testurl2.es', 'Testurl2');"
+    con.exec "INSERT INTO bookmarks(id, url, title) VALUES (1, 'http://testurl1.pl', 'Testurl1'), (2, 'http://testurl2.es', 'Testurl2');"
 end
 
 empty_test_db

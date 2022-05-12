@@ -22,4 +22,15 @@ feature 'bookmarks' do
     click_button 'Submit'
     expect(page).to have_content "Testurl3"
   end
+
+  scenario 'delete a specific bookmark' do
+    visit '/bookmarks'
+
+    expect(page).to have_link('Testurl1', href: 'http://testurl1.pl')
+
+    first('.delete').click_button 'Delete'
+
+    expect(current_path).to eq '/bookmarks'
+    expect(page).to_not have_link('Testurl1', href: 'http://testurl1.pl')
+  end
 end
