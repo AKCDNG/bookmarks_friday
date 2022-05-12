@@ -23,7 +23,7 @@ class List
     else
       con = PG.connect :dbname => 'bookmark_manager'
     end
-    con.exec "INSERT INTO bookmarks (url, title) VALUES ('#{url}', '#{title}');"
+    con.exec_params('INSERT INTO bookmarks (url, title) VALUES ($1 ,$2);', [url, title])
   end
 
 end
