@@ -20,6 +20,10 @@ As a user
 So that I can record new bookmarks
 I want to be able to add a new bookmark to my list of bookmarks.
 
+As a user
+So that I can remove bookmarks I no longer need
+I want to be able to delete a bookmark
+
 ## Diagram:
 ```mermaid
 classDiagram
