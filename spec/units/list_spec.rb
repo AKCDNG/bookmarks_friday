@@ -27,4 +27,16 @@ describe List do
       expect(List.all[0]).to be_instance_of(Bookmark).and have_attributes(:title => 'Testurl2')
     end
   end
+
+  describe '.update' do
+    it 'updates a bookmark' do
+      bookmark = List.add("https://www.youtube.com", 'YouTube')
+      updated_bookmark = List.update(bookmark.id, "https://learn.co", "LearnCo")
+
+      expect(updated_bookmark).to be_a Bookmark
+      expect(updated_bookmark.id).to eq bookmark.id
+      expect(updated_bookmark.url).to eq "https://learn.co"
+      expect(updated_bookmark.title).to eq "LearnCo"
+    end
+  end
 end
