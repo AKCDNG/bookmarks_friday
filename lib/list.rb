@@ -53,4 +53,13 @@ class List
     Bookmark.new(result[0]['id'], result[0]['url'], result[0]['title'])
   end
 
+  def self.find(id)
+    if ENV['DB_ENV'] == 'test'
+      con = PG.connect :dbname => 'bookmark_manager_test'
+    else
+      con = PG.connect :dbname => 'bookmark_manager'
+    end
+    result = con.exec_params("SELECT * FROM bookmarks WHERE id = $1;", [id])
+    Bookmark.new(result[0]['id'], result[0]['title'], result[0]['url'])
+  end
 end
